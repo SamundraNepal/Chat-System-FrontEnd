@@ -1,0 +1,131 @@
+.app {
+  height: calc(
+    100vh - 30px
+  ); /* Subtract the height of the browser's address bar or toolbar */
+}
+
+.mainArea {
+  height: calc(100vh - 10px);
+  border-radius: 10px;
+  border: 2px solid rgb(6, 180, 55);
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 6rem 1fr; /* Two rows: top adjusts to content, bottom row is flexible */
+  grid-template-columns: 1fr 2fr; /* Two columns for the bottom row: left 1fr, right 2fr */
+  gap: 2px; /* Spacing between grid items */
+  height: calc(100vh - 25px); /* Full viewport height */
+  padding: 10px;
+}
+
+.activePeople {
+  grid-column: 1 / 3; /* Span both columns */
+  border-top: 2px solid rgb(93, 20, 251);
+  border-right: 2px solid rgb(93, 20, 251);
+  border-left: 2px solid rgb(93, 20, 251);
+
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.messageArea {
+  background-color: rgb(241, 241, 241);
+  border-left: 2px solid rgb(93, 20, 251);
+  border-bottom: 2px solid rgb(93, 20, 251);
+
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.chatArea {
+  background-color: rgb(241, 241, 241);
+  border-right: 2px solid rgb(93, 20, 251);
+  border-bottom: 2px solid rgb(93, 20, 251);
+
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subChatArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+}
+
+.chatInput {
+  width: 70rem;
+  padding: 1.5rem;
+}
+
+.chatting {
+  background-color: seashell;
+  border-radius: 2rem;
+  display: flex;
+  border: 1px dotted rgb(93, 20, 251);
+  height: calc(100vh - 28vh);
+}
+
+.messageButtonArea {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  border-bottom: 2px solid black;
+}
+
+.button {
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.button:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.currentActive {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  font-size: 2rem;
+}
+
+.activeCount {
+  width: 8rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.activeStatus {
+  position: absolute;
+  top: 4.2rem;
+  margin-left: 1rem;
+  background: rgb(7, 221, 7);
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+}
+
+.peopleStat {
+  display: flex;
+  flex-direction: row;
+}
+
+.chats {
+  background-color: rgb(225, 233, 233);
+  height: calc(100vh - 24vh);
+  border-radius: 10px;
+  border-bottom: 2px dotted rgb(93, 20, 251);
+  border-left: 2px dotted rgb(93, 20, 251);
+  border-right: 2px dotted rgb(93, 20, 251);
+}
