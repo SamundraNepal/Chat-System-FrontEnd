@@ -11,25 +11,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   background-color: rgb(66, 211, 66);
-  height: 40vh;
+  height: 30vh;
   width: 30vw;
   padding: 50px;
   border-radius: 10px;
-  border: 2px solid green;
+  border: 6px solid green;
 }
 
-.fromButton {
+.inputCodesDiv {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  gap: 30px;
-  width: 30vw;
+  align-items: center;
+  padding: 0px;
+  gap: 5px;
 }
 
-p {
-  color: white;
+.input {
+  border-radius: 10px;
+  padding: 1rem;
+  border: none;
+  width: 80px;
+  height: 60px;
+  font-size: 2rem;
   text-align: center;
+}
+
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .button {
@@ -39,32 +52,12 @@ p {
   outline: 2px solid greenyellow;
   width: 10rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 
-.button:hover {
-  background-color: antiquewhite;
-  outline: 2px solid rgb(255, 255, 255);
-}
-
-input {
-  border-radius: 10px;
-  padding: 1rem;
-  border: none;
-}
-
-input:focus {
-  outline: 3px solid orange;
-  transition: border 0.3s ease, transform 0.3s ease; /* Apply transition to border and transform */
-}
-
-.active {
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out; /* Smooth transition for the transform property */
-}
-
-.inActive {
-  transform: scale(0);
-  transition: transform 0.3s ease-in-out; /* Smooth transition for the transform property */
+.buttonDiv {
+  display: flex;
+  gap: 2rem;
 }
 
 .errorMessage {
@@ -74,5 +67,4 @@ input:focus {
   font-size: large;
   margin-bottom: 5%;
   text-transform: uppercase;
-  text-decoration: underline;
 }

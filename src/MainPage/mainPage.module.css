@@ -5,7 +5,7 @@
 }
 
 .mainArea {
-  height: calc(100vh - 10px);
+  height: calc(100vh - 5px);
   border-radius: 10px;
   border: 2px solid rgb(6, 180, 55);
 }
@@ -14,8 +14,8 @@
   display: grid;
   grid-template-rows: 6rem 1fr; /* Two rows: top adjusts to content, bottom row is flexible */
   grid-template-columns: 1fr 2fr; /* Two columns for the bottom row: left 1fr, right 2fr */
-  gap: 2px; /* Spacing between grid items */
-  height: calc(100vh - 25px); /* Full viewport height */
+  gap: 10px; /* Spacing between grid items */
+  height: calc(100vh - 30px); /* Full viewport height */
   padding: 10px;
 }
 
@@ -39,7 +39,7 @@
   border-bottom: 2px solid rgb(93, 20, 251);
 
   border-radius: 10px;
-  padding: 10px;
+  padding: 2px;
 }
 
 .chatArea {
@@ -51,6 +51,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .subChatArea {
@@ -59,11 +60,12 @@
   align-items: center;
   gap: 10px;
   margin: 10px;
+  margin-top: 3rem;
   font-size: 1.5rem;
 }
 
 .chatInput {
-  width: 70rem;
+  width: calc(100vw - 40vw);
   padding: 1.5rem;
 }
 
@@ -77,9 +79,10 @@
 
 .messageButtonArea {
   display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
-  gap: 2rem;
   border-bottom: 2px solid black;
+  margin-bottom: 1rem;
 }
 
 .button {
@@ -87,6 +90,7 @@
   border: none;
   padding: 1rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
 }
 
 .button:hover {

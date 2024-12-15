@@ -1,0 +1,51 @@
+.spinnerDiv {
+  height: calc(100vh - 10vh); /* Centers spinner within available viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.loader {
+  border-radius: 50%; /* Makes the loader circular */
+  height: 50rem; /* Circle height */
+  width: 50rem; /* Circle width */
+  border: 0.5rem solid purple; /* Outer circle border */
+  border-top: 0.5rem solid transparent; /* Creates the spinning effect */
+  animation: spin 1s linear infinite; /* Infinite spinning animation */
+}
+
+.loaderTwo {
+  border-radius: 50%; /* Makes the loader circular */
+  height: 30rem; /* Circle height */
+  width: 30rem; /* Circle width */
+  border: 0.5rem solid rgb(142, 0, 142); /* Outer circle border */
+  border-top: 0.5rem solid transparent; /* Creates the spinning effect */
+  animation: spin 1.5s linear infinite; /* Infinite spinning animation */
+  position: absolute;
+}
+
+.Gap {
+  text-align: center;
+}
+
+.active {
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out; /* Smooth transition for the transform property */
+}
+
+.inActive {
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out; /* Smooth transition for the transform property */
+}
+
+/* Keyframes for the spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg); /* Start position */
+  }
+  to {
+    transform: rotate(360deg); /* End position (full circle) */
+  }
+}

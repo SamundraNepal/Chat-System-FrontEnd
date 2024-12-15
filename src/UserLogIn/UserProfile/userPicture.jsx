@@ -1,43 +1,86 @@
 import Styles from './userPicture.module.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import UInput from '../../ReUseComponenets/Input';
-import UButton from '../../ReUseComponenets/button';
+import UInput from '../../Components/Input';
+import UButton from '../../Components/button';
 import { FaRegUser } from 'react-icons/fa';
+import { uploadAvatar } from '../../API/apiCalls';
+import Spinner from '../../until/spinner/spinner';
 
-export default function UploadProfilePicture() {
+export default function UploadProfilePicture({ userData }) {
   const [openModel, setOpenModel] = useState(false);
+  const [uploadFiles, setUploadFiles] = useState('');
+  const [logInPage, setLogInPage] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setOpenModel(true);
   }, []);
 
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const data = await uploadAvatar(uploadFiles, userData);
+      if (!data) {
+        console.log('upload Failed');
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+
+        setLogInPage(true);
+      }
+    } catch (err) {
+      console.log('upload Failed ', err.message);
+      setIsLoading(false);
+    }
   }
 
   return (
-    <div
-      className={`${Styles.LogInPageContainer} ${
-        openModel ? Styles.active : Styles.inActive
-      }`}
-    >
-      <form className={Styles.ContainerSubPage} onSubmit={handleFormSubmit}>
-        <div>
-          <p>Upload Picture</p>
-        </div>
-        <div>
-          <FaRegUser className={Styles.UserAvatar} />
-        </div>
-        <UInput PlaceHolder={'Enter Email Address'} Type={'file'} />
-        <div className={Styles.fromButton}>
-          <UButton ButtonName={'Upload'} />
+    <>
+      {!isLoading ? (
+        <div
+          className={`${Styles.LogInPageContainer} ${
+            openModel ? Styles.active : Styles.inActive
+          }`}
+        >
+          {!logInPage ? (
+            <form
+              className={Styles.ContainerSubPage}
+              onSubmit={handleFormSubmit}
+            >
+              <div>
+                <p>Upload Picture</p>
+              </div>
+              <div>
+                <FaRegUser className={Styles.UserAvatar} />
+              </div>
+              <UInput
+                Type={'file'}
+                Accept="image/png, image/jpeg"
+                OnChange={(e) => setUploadFiles(e.target.files[0])}
+              />
+              <div className={Styles.fromButton}>
+                <UButton ButtonName={'Upload'} ClassName={Styles.button} />
 
-          <Link to="/">
-            <UButton ButtonName={'Back'} />
-          </Link>
+                <Link to="/">
+                  <UButton ButtonName={'Back'} ClassName={Styles.button} />
+                </Link>
+              </div>
+            </form>
+          ) : (
+            <div className={Styles.ContainerSubPage}>
+              <span>You can now Log In</span>
+              <Link to="/">
+                <UButton ButtonName={'Back'} ClassName={Styles.button} />
+              </Link>
+            </div>
+          )}
         </div>
-      </form>
-    </div>
+      ) : (
+        <Spinner />
+      )}
+    </>
   );
 }

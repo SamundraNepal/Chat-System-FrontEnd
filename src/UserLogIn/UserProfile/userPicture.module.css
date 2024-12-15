@@ -50,13 +50,13 @@ p {
   outline: 2px solid rgb(255, 255, 255);
 }
 
-input {
+.input {
   border-radius: 10px;
   padding: 1rem;
   border: none;
 }
 
-input:focus {
+.input:focus {
   outline: 3px solid orange;
   transition: border 0.3s ease, transform 0.3s ease; /* Apply transition to border and transform */
 }
