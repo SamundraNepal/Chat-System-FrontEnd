@@ -82,7 +82,6 @@ export default function CommentsHeader({
   }
 
   async function handleCommentLikes() {
-    console.log(commentsUsers);
     try {
       const datas = await CommentsInteractions(
         commentsUsers.id,
@@ -271,7 +270,6 @@ function ReplyDivs({
   const { setMasterAudioPlay, masterAudioPlay, setAudioFileToPlay, userData } =
     useContext(UserContext);
 
-  console.log(commentInteractionReplies);
 
   const [isPlayabel, setIsPlayBale] = useState(false);
   const [isDeleteBox, setIsDeleteBox] = useState(false);
@@ -328,7 +326,6 @@ function ReplyDivs({
       } else {
         const prevData = commentInteractionReplies;
         const filterData = prevData.filter((items) => items.id !== el.id);
-        console.log(filterData, commentInteractionReplies);
         SetcommentInteractionsReplies(filterData);
       }
     } catch (err) {
@@ -349,7 +346,6 @@ function ReplyDivs({
       if (!data.success) {
         console.log(data);
       } else {
-        console.log(data);
         setWeLiked((prev) => !prev);
         if (!weLiked) {
           setCommentLikes((prev) => prev + 1);

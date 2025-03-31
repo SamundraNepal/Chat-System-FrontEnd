@@ -26,7 +26,6 @@ export default function ShowFindFriends() {
         setFindFrnData({});
       } else {
         setFindFrnData(data);
-        console.log(data.data);
       }
     } catch (err) {
       console.log(err.message);

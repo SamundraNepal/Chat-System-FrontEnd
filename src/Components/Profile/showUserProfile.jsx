@@ -255,7 +255,6 @@ function AudioPost({ post }) {
 
   const postDate = new Date(post?.createdAt).toLocaleDateString();
 
-  console.log(showFrnData);
   function handleOpenComments() {
     setOpenComments((prev) => !prev);
   }

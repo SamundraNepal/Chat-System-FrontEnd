@@ -110,9 +110,9 @@ function HandleReceivedFriendRequest({ handleShowFrnData, el }) {
       const data = await AcceptFriend(el);
 
       if (data.success) {
-        console.log(data);
-      } else {
         toast.success(`You accepted ${el.firstName} friend request`);
+      } else {
+        console.log(data);
       }
     } catch (err) {
       console.log(err.message);

@@ -40,7 +40,6 @@ export default function AuthFactor() {
         }
         setIsLoading(false);
       } else {
-        console.log(document.cookie);
         setIsAuthenticated(true);
         Setmessage('');
         setIsLoading(false);

@@ -30,7 +30,6 @@ export default function ShowChats() {
         console.log(data);
       } else {
         if (data.data.length === 0) {
-          console.log('shit im out');
         } else {
           const mergedData = [...users, ...data.data]
             .reduce((acc, obj) => {
@@ -99,8 +98,6 @@ function DisplayChats({ el, handleOpenChats, els }) {
       const data = await ReadChats(els.id);
       if (!data.success) {
         console.log(data);
-      } else {
-        console.log(data);
       }
     } catch (err) {
       console.log(err);
@@ -111,7 +108,6 @@ function DisplayChats({ el, handleOpenChats, els }) {
     handleOpenChats(el);
     setIsOpen(true);
     handleReadChats();
-    console.log(el);
   }
   return (
     <div

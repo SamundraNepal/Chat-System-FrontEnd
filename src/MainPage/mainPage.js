@@ -93,7 +93,6 @@ export default function MainArea() {
           console.log(data);
         } else {
           setGetNotifications(data);
-          console.log(data);
         }
       } catch (err) {
         console.log(err.message);

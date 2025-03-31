@@ -82,7 +82,6 @@ export default function EditBio() {
     e.preventDefault();
     const filterData = fromData.Hobbies.filter((items, acc) => acc !== index);
     setFromData({ ...fromData, Hobbies: filterData });
-    console.log(index);
   }
 
   return (

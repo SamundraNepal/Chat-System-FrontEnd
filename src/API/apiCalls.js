@@ -3,7 +3,6 @@ const AudioAPI = 'http://localhost:3000/tarang/v1/post/';
 const SearchAPI = `http://localhost:3000/tarang/v1/search/`;
 
 export async function SignUpUser(formData) {
-  console.log(formData);
   try {
     const response = await fetch(`${API}createUser`, {
       method: 'POST',
@@ -748,7 +747,6 @@ export async function DeleteCommentAPI(
   senderID,
   receiverID,
 ) {
-  console.log(comment_id, post_id);
   try {
     const response = await fetch(`${AudioAPI}deleteComment`, {
       method: 'POST',
@@ -997,7 +995,6 @@ export async function GetChats() {
 //handles the chat post by the user
 export async function CreateMediaChats(receiverID, media) {
   try {
-    console.log(receiverID, media);
 
     const formData = new FormData();
     if (media.type.startsWith('image/')) {

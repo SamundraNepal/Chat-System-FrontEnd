@@ -15,12 +15,10 @@ export default function UniversalAudio() {
       audioRef.current
         .play()
         .catch((err) => console.error('Audio play failed:', err));
-      console.log('Audio is playing');
 
       // Listen for when the audio finishes playing
       audioRef.current.onended = () => {
         setMasterAudioPlay(false);
-        console.log('Audio has finished playing');
       };
     } else {
       audioRef.current.pause();

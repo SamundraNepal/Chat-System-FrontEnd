@@ -43,7 +43,6 @@ export default function ProfilePage() {
       if (!data.success) {
         console.log(data);
       } else {
-        console.log(data);
         setUserPost(data);
       }
     } catch (err) {

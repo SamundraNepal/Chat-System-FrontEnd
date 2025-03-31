@@ -47,7 +47,6 @@ function UniversalAudio({ post, playAudio, setPlayAudio }) {
 
       audioRef.current.onended = () => {
         setPlayAudio(false);
-        console.log('Audio has finished playing');
       };
     } else {
       audioRef.current.pause();

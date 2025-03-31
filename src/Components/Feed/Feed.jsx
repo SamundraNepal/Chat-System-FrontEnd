@@ -275,7 +275,6 @@ function InterActions({ el }) {
   function handleplayAudioOfThePost() {
     setAudioFileToPlay(el.audioLink[0]);
     setMasterAudioPlay((prev) => !prev);
-    console.log('playing');
   }
 
   return (
