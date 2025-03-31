@@ -69,7 +69,8 @@ export function FileUploadProvider({ children }) {
 export function AuthProvider({ children }) {
   const [credentials, setCredentials] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  //dummy auth code
+  const [dummyauthCode, setDummyAuthCode] = useState('');
   return (
     <AuthContext.Provider
       value={{
@@ -77,6 +78,8 @@ export function AuthProvider({ children }) {
         setCredentials,
         isAuthenticated,
         setIsAuthenticated,
+        dummyauthCode,
+        setDummyAuthCode,
       }}
     >
       {children}
@@ -118,6 +121,7 @@ export function UserProvider({ children }) {
   //play audio from anywhere
   const [masterAudioPlay, setMasterAudioPlay] = useState(false);
   const [AudioFileToPlay, setAudioFileToPlay] = useState('');
+
   return (
     <UserContext.Provider
       value={{

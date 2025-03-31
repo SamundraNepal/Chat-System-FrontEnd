@@ -995,7 +995,6 @@ export async function GetChats() {
 //handles the chat post by the user
 export async function CreateMediaChats(receiverID, media) {
   try {
-
     const formData = new FormData();
     if (media.type.startsWith('image/')) {
       formData.append('images', media);

@@ -9,7 +9,7 @@ import { AuthContext } from '../until/useContext';
 import { toast, ToastContainer } from 'react-toastify';
 
 export default function LoginUser() {
-  const { setCredentials } = useContext(AuthContext);
+  const { setCredentials, setDummyAuthCode } = useContext(AuthContext);
   const [openModel, setOpenModel] = useState(false);
   const [formData, setFormData] = useState({
     emailAddress: '',
@@ -37,6 +37,7 @@ export default function LoginUser() {
 
         setIsLoading(false);
       } else {
+        setDummyAuthCode(logInData.message);
         setIsLoading(false);
         setCredentials(true);
       }

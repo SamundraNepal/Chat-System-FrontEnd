@@ -9,7 +9,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../../until/useContext';
 
 export default function AuthFactor() {
-  const { setCredentials, setIsAuthenticated } = useContext(AuthContext);
+  const { setCredentials, setIsAuthenticated, dummyauthCode } =
+    useContext(AuthContext);
   const inputs = useRef([]);
   const [pin, setPin] = useState({
     value0: '',
@@ -96,6 +97,7 @@ export default function AuthFactor() {
                 />
               </Link>
             </div>
+            <p>{dummyauthCode.message}</p>
             <ErrorMessage Message={message} ClassName={Style.errorMessage} />
           </div>
         </div>
