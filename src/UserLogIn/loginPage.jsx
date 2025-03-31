@@ -72,7 +72,9 @@ export default function LoginUser() {
           </div>
           <form className={Styles.ContainerSubPage} onSubmit={handleFormSubmit}>
             <UInput
-              PlaceHolder={'Enter Email Address'}
+              PlaceHolder={
+                'Enter Email Address // Testing Email: testing@gmail.com'
+              }
               Type={'email'}
               Value={formData.emailAddress}
               OnChange={(e) =>
@@ -84,7 +86,7 @@ export default function LoginUser() {
             />
 
             <UInput
-              PlaceHolder={'Enter Password'}
+              PlaceHolder={'Enter Password // Testing Password: Testing@1'}
               Type={'password'}
               Value={formData.password}
               OnChange={(e) =>
