@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Styles from './spinner.module.css';
 
-export default function Spinner() {
+export default function Spinner({ size }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -12,8 +12,14 @@ export default function Spinner() {
     <>
       <div className={`${isOpen ? Styles.active : Styles.inActive}`}>
         <div className={Styles.spinnerDiv}>
-          <div className={Styles.loader}></div>
-          <div className={Styles.loaderTwo}></div>
+          <div
+            className={size === 'small' ? Styles.Smallloader : Styles.loader}
+          ></div>
+          <div
+            className={
+              size === 'small' ? Styles.SmallloaderTwo : Styles.loaderTwo
+            }
+          ></div>
 
           <span className={Styles.Gap}>Loading....</span>
         </div>

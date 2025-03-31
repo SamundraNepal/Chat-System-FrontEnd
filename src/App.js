@@ -7,12 +7,15 @@ import { useContext, useEffect, useState } from 'react';
 import AuthFactor from './UserLogIn/Auth/authFactor';
 import { AutoLogIn } from './API/apiCalls';
 import Spinner from './until/spinner/spinner';
-import { AuthContext } from './until/useContext';
+import { AuthContext, FileUploads } from './until/useContext';
+import UploadingFilesBackground from './Modal/uploadingFiles';
 
 function App() {
   const { credentials, setCredentials, isAuthenticated, setIsAuthenticated } =
     useContext(AuthContext);
 
+  const { isBackGroundUploading, setIsBackGroundUploading } =
+    useContext(FileUploads);
   const [isLoading, SetIsLoading] = useState(false);
   const router = createBrowserRouter([
     {
@@ -47,7 +50,7 @@ function App() {
         }
       } catch (err) {
         SetIsLoading(false);
-        throw new Error('Failed to log in user ' + err.message);
+        console.log('Failed to log in user ' + err.message);
       }
     }
 
@@ -56,6 +59,7 @@ function App() {
 
   return (
     <div className={'app'}>
+      {isBackGroundUploading && <UploadingFilesBackground />}
       {!isLoading ? (
         <div>
           <RouterProvider router={router} />

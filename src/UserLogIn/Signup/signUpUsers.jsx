@@ -2,17 +2,15 @@ import Styles from './Signup.module.css';
 import UInput from '../../Components/Input';
 import UButton from '../../Components/button';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import UploadProfilePicture from '../UserProfile/userPicture';
 import Spinner from '../../until/spinner/spinner';
-import ErrorMessage from '../../Components/message';
 import { SignUpUser } from '../../API/apiCalls';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function SignUpUsers() {
-  const [openModel, setOpenModel] = useState(false);
   const [uploadImage, setUploadImage] = useState(false);
   const [isLoading, SetLoding] = useState(false);
-  const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -25,17 +23,18 @@ export default function SignUpUsers() {
   });
   const [userData, setUserData] = useState({});
 
-  useEffect(() => {
-    setOpenModel(true);
-  }, []);
-
+  const toastError = (response) => {
+    toast.error(response, {
+      position: 'bottom-right',
+    });
+  };
   async function handleFormSubmit(e) {
     e.preventDefault();
     SetLoding(true);
     try {
       const logInData = await SignUpUser(formData);
       if (!logInData.success) {
-        setMessage(logInData.message);
+        toastError(logInData.message);
         SetLoding(false);
       } else {
         setUserData(logInData.message.data);
@@ -43,29 +42,35 @@ export default function SignUpUsers() {
         SetLoding(false);
       }
     } catch (err) {
-      console.log('something went wrong ' + err.message);
+      toastError(err.message);
       SetLoding(false);
     }
   }
 
   return (
     <>
+      <ToastContainer />
       {!isLoading ? (
         <div>
           {!uploadImage ? (
-            <div
-              className={`${Styles.LogInPageContainer} ${
-                openModel ? Styles.active : Styles.inActive
-              }`}
-            >
+            <div className={`${Styles.LogInPageContainer} `}>
+              <div className={Styles.appLogo}>
+                <div className={Styles.logoName}>
+                  <h1>Buzz</h1>
+                </div>
+                <div className={Styles.logoImageAndName}>
+                  <img
+                    src="/TarangLogo.png"
+                    height={400}
+                    width={400}
+                    alt="appLogo"
+                  />
+                </div>
+              </div>
               <form
                 className={Styles.ContainerSubPage}
                 onSubmit={handleFormSubmit}
               >
-                <div>
-                  <p>Sign Up</p>
-                </div>
-
                 <div className={Styles.indivualsDiv}>
                   <span>First Name </span>
                   <UInput
@@ -201,10 +206,6 @@ export default function SignUpUsers() {
                     ClassName={Styles.button}
                   />
                 </div>
-                <ErrorMessage
-                  Message={message}
-                  ClassName={Styles.errorMessage}
-                />
               </form>
             </div>
           ) : (

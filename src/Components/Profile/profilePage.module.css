@@ -1,0 +1,643 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 1000px;
+  padding: 10px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  animation: ShowPage 1s ease-in;
+  position: relative;
+}
+
+.UserProfilePicture {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  align-items: start;
+  z-index: 1;
+  margin-top: 30px;
+}
+
+.UserProfileName {
+  font-size: 1.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.userName {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content: center;
+  text-align: center;
+}
+
+.backGroundImage {
+  width: 95%;
+  height: 32%;
+  position: absolute;
+}
+
+.backGroundImage button {
+  position: absolute;
+  width: 15%;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.backGroundImage span {
+  position: absolute;
+  font-size: 2rem;
+  left: 100.2%;
+  top: 0;
+  cursor: pointer;
+  color: black;
+  border-radius: 10%;
+  display: flex;
+}
+
+.backGroundImage button:hover {
+  background-color: white;
+}
+
+.backGroundImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid rgb(120, 23, 238);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 30rem 1fr;
+
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.UserProfileBio {
+  min-width: fit-content;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  grid-row: span 2;
+  border: 2px solid rgb(131, 36, 233);
+  padding: 2px;
+  border-radius: 10px;
+  gap: 10px;
+  background-color: white;
+}
+
+.UserProfileBio button {
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(146, 38, 213);
+  color: white;
+}
+
+.UserProfileBio button:hover {
+  background-color: rgb(172, 86, 226);
+}
+
+.UserProfileBio div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.UserProfileBio div span {
+  text-align: start;
+  font-weight: bold;
+  color: black;
+}
+
+.UserProfileBio div p {
+  text-align: start;
+  color: rgb(0, 0, 0);
+  font-weight: 50;
+}
+
+.UserProfileBioDetails {
+  display: flex;
+}
+
+.UserProfileBioDetails div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.UserProfilePosts {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  grid-row: span 1;
+  border: 2px solid purple;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.UserProfilePosts div {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserProfilePostsInput {
+  background-color: rgb(217, 212, 202);
+  height: 10%;
+  width: 100%;
+}
+.UserPosts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: span 2;
+  border-radius: 10px;
+  background-color: white;
+  gap: 30px;
+}
+
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 100%;
+}
+
+.audioOnlyPost {
+  min-width: 90%;
+  min-height: 200px;
+  border-bottom: 2px solid rgb(134, 16, 231);
+  border-radius: 20px;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+}
+
+.AudioPost audio {
+  width: 80%;
+  border-radius: 50px;
+}
+.peopleInteraction {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.peopleInteraction label {
+  color: rgb(155, 154, 157);
+  cursor: pointer;
+}
+
+.peopleInteraction label:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.LikeAndCommentButtons {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  right: 5%;
+  top: 30%;
+}
+
+.interAction {
+  display: flex;
+  flex-direction: column;
+}
+
+.interAction :hover {
+  color: #6138d1;
+}
+
+.interAction p {
+  font-size: 1rem;
+  color: rgb(147, 145, 152);
+}
+
+.buttons {
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.AudioPost {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+  justify-content: center;
+}
+
+.buzzInterAction {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.buzzInterAction button {
+  border: none;
+  color: rgb(56, 56, 56);
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.buzzInterAction button:hover {
+  background-color: rgb(195, 193, 197);
+}
+
+.AddMessge {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: aliceblue;
+}
+
+.UserUI {
+  display: flex;
+  gap: 4px;
+}
+
+.UsePostNameandDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.UserName {
+  font-weight: bold;
+}
+
+.UserPostDate {
+  font-weight: 500;
+  color: rgb(127, 128, 130);
+}
+
+/* Media grid*/
+.mediaGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2px;
+  position: relative;
+  justify-content: center;
+}
+
+.mediaGrid img {
+  width: 600px;
+  height: 800px;
+  object-fit: contain; /* Ensures the entire image is visible without cropping */
+  background-color: #000000; /* Optional: Add a background color to fill empty space */
+  border-radius: 10px;
+}
+
+.mediaGrid video {
+  width: 600px;
+  height: 800px;
+  object-fit: contain; /* Ensures the entire image is visible without cropping */
+
+  background-color: #000000; /* Optional: Add a background color to fill empty space */
+  border-radius: 10px;
+}
+
+.moreValue {
+  position: absolute;
+  height: 10%;
+  width: 50%;
+  margin-left: 20%;
+  top: -10%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  color: white;
+  z-index: 1;
+}
+
+.circle {
+  color: black;
+  font-size: 1.5rem;
+}
+
+.moreValue button {
+  font-size: 1.5rem;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(134, 31, 238, 0.613);
+  color: white;
+  cursor: pointer;
+}
+
+.moreValue button:hover {
+  background-color: rgb(119, 18, 244);
+}
+
+.subFont {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: gray;
+}
+
+.showLikes {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(243, 243, 243, 0.922);
+  width: 60%;
+  height: 60%;
+  z-index: 1;
+  left: 20%;
+  top: 20%;
+  border-radius: 10px;
+  border: 4px solid rgb(113, 23, 239);
+  overflow-y: scroll;
+}
+
+.headerLikes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.LikedAccounts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.LikedAccounts div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #c9c8cd;
+  border-radius: 50px;
+  border-bottom: 2px solid purple;
+}
+
+.cross {
+  margin-left: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.likes {
+  color: #622ce1;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+.LikedAccounts p {
+  color: #726b82;
+}
+
+.likesClose {
+  color: #f8f7f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  background-color: red;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.likesClose:hover {
+  color: white;
+  background-color: #bc7a7a;
+}
+
+.audioUI {
+  background-color: #f1f1f5;
+  width: 100%;
+  height: 800px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.audioVinyl {
+  background-color: #141414;
+  height: 500px;
+  width: 500px;
+  border-radius: 500px;
+  border: 6px solid rgb(103, 53, 212);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audioVinyl div {
+  background-color: rgb(195, 45, 45);
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+}
+
+.audioVinyl button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 6rem;
+  background-color: #00000000;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.audioVinyl button:hover {
+  color: #e3dede;
+}
+
+.divControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.divControls label {
+  font-size: 4rem;
+}
+
+.divControls p {
+  font-size: 2rem;
+  color: black;
+}
+
+.commentContainer {
+  position: absolute;
+  top: 0%;
+  background-color: rgba(105, 69, 214, 0.81);
+  width: 590px;
+  height: 550px;
+  border-radius: 20px;
+  right: 55px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: scaleUp 0.3s ease-out forwards;
+}
+.commentContainer p {
+  color: white;
+}
+
+.yourComment {
+  background-color: rgb(51, 50, 52);
+  width: 100%;
+  height: 15%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.mic:hover {
+  color: rgb(133, 131, 128);
+}
+
+.allComments {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.commentHeader button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 2px solid rgb(199, 197, 193);
+}
+
+.commentHeader button:hover {
+  color: rgb(178, 179, 181);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial size */
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    transform: scale(1.2); /* Enlarged size */
+    opacity: 0.7; /* Slightly transparent */
+  }
+  100% {
+    transform: scale(1); /* Back to initial size */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ShowPage {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial size */
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    transform: scale(1.2); /* Enlarged size */
+    opacity: 0.7; /* Slightly transparent */
+  }
+  100% {
+    transform: scale(1); /* Back to initial size */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

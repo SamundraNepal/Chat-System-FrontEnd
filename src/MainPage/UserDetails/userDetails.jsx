@@ -7,12 +7,8 @@ import { AuthContext, UserContext } from '../../until/useContext';
 export default function UserDetails() {
   const [isOpen, setIsOpen] = useState(false);
   const { setCredentials, setIsAuthenticated } = useContext(AuthContext);
-  const {
-    SetUpdatePassword,
-    setUpdateProfilePicture,
-    setUserVisibility,
-    setOpenUserDetails,
-  } = useContext(UserContext);
+  const { SetUpdatePassword, setUserVisibility, setOpenUserDetails } =
+    useContext(UserContext);
 
   useEffect(() => {
     setIsOpen(true);
@@ -39,12 +35,6 @@ export default function UserDetails() {
     setOpenUserDetails(false);
   }
 
-  function handleUpdateProfilePicture() {
-    setUpdateProfilePicture((prev) => !prev);
-    setIsOpen(false);
-    setOpenUserDetails(false);
-  }
-
   function handleVisibility() {
     setUserVisibility((prev) => !prev);
     setIsOpen(false);
@@ -60,11 +50,6 @@ export default function UserDetails() {
           ButtonName={'Update Password'}
           ClassName={Style.button}
           handleFunction={handleUpdatePassword}
-        />
-        <UButton
-          ButtonName={'Update Profile'}
-          ClassName={Style.button}
-          handleFunction={handleUpdateProfilePicture}
         />
         <UButton
           ButtonName={'Visibility'}

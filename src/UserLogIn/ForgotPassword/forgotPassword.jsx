@@ -48,6 +48,7 @@ export default function ForgotPasswordPage() {
                 openModel ? Styles.active : Styles.inActive
               }`}
             >
+              <AppLogo />
               <form
                 className={Styles.ContainerSubPage}
                 onSubmit={handleFormSubmit}
@@ -128,6 +129,8 @@ function ResetPassword({ setPasswordReset, setMessage, message, setLoading }) {
         openModel ? Styles.active : Styles.inActive
       }`}
     >
+      <AppLogo />
+
       <form className={Styles.ContainerSubPage} onSubmit={handleFormSubmit}>
         <div>
           <p>Reset Password</p>
@@ -166,6 +169,19 @@ function ResetPassword({ setPasswordReset, setMessage, message, setLoading }) {
         </div>
         <ErrorMessage ClassName={Styles.errorMessage} Message={message} />
       </form>
+    </div>
+  );
+}
+
+function AppLogo() {
+  return (
+    <div className={Styles.appLogo}>
+      <div className={Styles.logoName}>
+        <h1>Buzz</h1>
+      </div>
+      <div className={Styles.logoImageAndName}>
+        <img src="/TarangLogo.png" height={400} width={400} alt="appLogo" />
+      </div>
     </div>
   );
 }

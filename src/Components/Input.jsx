@@ -5,6 +5,9 @@ function UInput({
   Value,
   OnChange,
   ClassName,
+  functionName,
+  OnFocus,
+  Disbaled,
 }) {
   return (
     <input
@@ -12,9 +15,12 @@ function UInput({
       placeholder={PlaceHolder}
       type={Type}
       required
+      disabled={Disbaled}
+      onFocus={OnFocus}
       accept={Accept}
       value={Value}
       onChange={OnChange}
+      onClick={functionName}
     />
   );
 }

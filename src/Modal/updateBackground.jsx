@@ -6,13 +6,13 @@ import { useContext } from 'react';
 import { UserContext } from '../until/useContext';
 import AvatarImage from '../Components/avatar';
 import { useRef } from 'react';
-import { UpdateProfilePicture } from '../API/apiCalls';
+import { UpdateBackGroundPicture, UpdateProfilePicture } from '../API/apiCalls';
 import Spinner from '../until/spinner/spinner';
 
-export default function UpdateProfile() {
+export default function BackgroundChange() {
   const [isOpen, setIsOpen] = useState(false);
   const [form, setFormData] = useState('');
-  const { setUpdateProfilePicture, userData } = useContext(UserContext);
+  const { seteditCoverPhoto, userData } = useContext(UserContext);
   const modalRef = useRef(null);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ export default function UpdateProfile() {
   const handleOutsideClick = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       setIsOpen(false); // Close the box
-      setUpdateProfilePicture(false);
+      seteditCoverPhoto(false);
     }
   };
 
@@ -35,7 +35,11 @@ export default function UpdateProfile() {
 
   function handleClose() {
     setIsOpen(false);
-    setUpdateProfilePicture(false);
+    const timer = setTimeout(() => {
+      seteditCoverPhoto(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
   }
 
   async function handleUpdateProfile(e) {
@@ -43,7 +47,7 @@ export default function UpdateProfile() {
 
     setIsLoading(true);
     try {
-      const data = await UpdateProfilePicture(form);
+      const data = await UpdateBackGroundPicture(form);
 
       if (!data.success) {
         setIsLoading(false);
@@ -67,7 +71,7 @@ export default function UpdateProfile() {
       >
         {!isLoading ? (
           <div className={Style.ContSub}>
-            <span>Profile Picture</span>
+            <span>Background Image</span>
 
             {!form && (
               <AvatarImage

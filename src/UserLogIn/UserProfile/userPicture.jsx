@@ -6,6 +6,7 @@ import UButton from '../../Components/button';
 import { FaRegUser } from 'react-icons/fa';
 import { uploadAvatar } from '../../API/apiCalls';
 import Spinner from '../../until/spinner/spinner';
+import AvatarImage from '../../Components/avatar';
 
 export default function UploadProfilePicture({ userData }) {
   const [openModel, setOpenModel] = useState(false);
@@ -45,6 +46,21 @@ export default function UploadProfilePicture({ userData }) {
             openModel ? Styles.active : Styles.inActive
           }`}
         >
+          <div className={Styles.appLogo}>
+            <div className={Styles.logoName}>
+              <h1>Tarang</h1>
+            </div>
+            <div className={Styles.logoImageAndName}>
+              <img
+                src="/TarangLogo.png"
+                height={400}
+                width={400}
+                alt="appLogo"
+              />
+              <h2>Tarang</h2>
+            </div>
+          </div>
+
           {!logInPage ? (
             <form
               className={Styles.ContainerSubPage}
@@ -54,7 +70,16 @@ export default function UploadProfilePicture({ userData }) {
                 <p>Upload Picture</p>
               </div>
               <div>
-                <FaRegUser className={Styles.UserAvatar} />
+                {!uploadFiles && <FaRegUser className={Styles.UserAvatar} />}
+
+                {uploadFiles && (
+                  <AvatarImage
+                    SRC={URL.createObjectURL(uploadFiles)}
+                    H={190}
+                    W={190}
+                    ALT={'User Image'}
+                  />
+                )}
               </div>
               <UInput
                 Type={'file'}

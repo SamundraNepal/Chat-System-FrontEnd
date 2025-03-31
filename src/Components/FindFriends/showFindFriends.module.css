@@ -1,0 +1,146 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.AvatarStyle {
+  height: 90px;
+  width: 250px;
+  border-radius: 50%; /* Makes the container circular */
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+  overflow: hidden; /* Crops excess parts of the image if needed */
+  border: 4px solid rgb(130, 50, 244);
+}
+
+.AvatarStyle:hover {
+  border: 4px dotted rgb(130, 50, 244);
+}
+
+.mainContainer {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+
+.UserName {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  margin-right: 50px;
+}
+
+.mutalFrn {
+  color: black;
+}
+
+.FriendAction {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 30px;
+  margin-right: 10px;
+}
+
+.button {
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  background-color: rgb(140, 46, 227);
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.button:hover {
+  background-color: rgb(220, 103, 255);
+}
+
+.input {
+  border-radius: 10px;
+  padding: 1rem;
+  border: none;
+  width: calc(100% - 10%);
+  font-weight: bold;
+}
+
+.input:focus {
+  outline: 3px solid orange;
+  transition: border 0.3s ease, transform 0.3s ease; /* Apply transition to border and transform */
+}
+
+.Searchable {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.SearchIcon {
+  font-size: 2rem;
+  transform: rotate(90deg);
+  border-radius: 10px;
+  color: rgb(129, 27, 254);
+}
+
+.SearchIcon:hover {
+  color: rgb(165, 96, 225);
+}
+
+.receivedFrnRequest {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  gap: 10px;
+  background-color: antiquewhite;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.frnRequests {
+  display: flex;
+  justify-content: start;
+  height: 40px;
+  border-bottom: 2px solid purple;
+  border-radius: 50px;
+}
+
+.frnRequests p {
+  color: black;
+  margin-left: 10px;
+}
+
+.Fbutton {
+  width: 40%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: rgb(140, 46, 227);
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.Fbutton:hover {
+  background-color: rgb(220, 103, 255);
+}
+
+.frnRequestButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}

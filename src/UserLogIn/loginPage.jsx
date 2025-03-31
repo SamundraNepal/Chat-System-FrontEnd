@@ -4,9 +4,9 @@ import UButton from '../Components/button';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { LogInUsers } from '../API/apiCalls';
-import ErrorMessage from '../Components/message';
 import Spinner from '../until/spinner/spinner';
 import { AuthContext } from '../until/useContext';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function LoginUser() {
   const { setCredentials } = useContext(AuthContext);
@@ -15,44 +15,61 @@ export default function LoginUser() {
     emailAddress: '',
     password: '',
   });
-  const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setOpenModel(true);
   }, []);
 
+  const toastError = (response) => {
+    toast.error(response, {
+      position: 'bottom-right',
+    });
+  };
+
   async function handleFormSubmit(e) {
     e.preventDefault();
+
     setIsLoading(true);
     try {
       const logInData = await LogInUsers(formData);
       if (!logInData.success) {
-        setMessage(logInData.message);
+        toastError(logInData.message);
+
         setIsLoading(false);
       } else {
-        setMessage('');
         setIsLoading(false);
         setCredentials(true);
       }
     } catch (err) {
-      console.log('something went wrong ', err.message);
+      toastError(err.message);
       setIsLoading(false);
     }
   }
 
   return (
     <>
+      <ToastContainer />
+
       {!isLoading ? (
         <div
           className={`${Styles.LogInPageContainer} ${
             openModel ? Styles.active : Styles.inActive
           }`}
         >
-          <form className={Styles.ContainerSubPage} onSubmit={handleFormSubmit}>
-            <div>
-              <p>Log In</p>
+          <div className={Styles.appLogo}>
+            <div className={Styles.logoName}>
+              <h1>Buzz</h1>
             </div>
-
+            <div className={Styles.logoImageAndName}>
+              <img
+                src="/TarangLogo.png"
+                height={400}
+                width={400}
+                alt="appLogo"
+              />
+            </div>
+          </div>
+          <form className={Styles.ContainerSubPage} onSubmit={handleFormSubmit}>
             <UInput
               PlaceHolder={'Enter Email Address'}
               Type={'email'}
@@ -86,7 +103,6 @@ export default function LoginUser() {
                 />
               </Link>
             </div>
-            <ErrorMessage Message={message} ClassName={Styles.errorMessage} />
           </form>
         </div>
       ) : (

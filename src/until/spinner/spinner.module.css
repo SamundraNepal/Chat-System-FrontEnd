@@ -7,6 +7,13 @@
   text-align: center;
 }
 
+.spinnerDiv span {
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: larger;
+}
+
 .loader {
   border-radius: 50%; /* Makes the loader circular */
   height: 50rem; /* Circle height */
@@ -20,6 +27,25 @@
   border-radius: 50%; /* Makes the loader circular */
   height: 30rem; /* Circle height */
   width: 30rem; /* Circle width */
+  border: 0.5rem solid rgb(142, 0, 142); /* Outer circle border */
+  border-top: 0.5rem solid transparent; /* Creates the spinning effect */
+  animation: spin 1.5s linear infinite; /* Infinite spinning animation */
+  position: absolute;
+}
+
+.Smallloader {
+  border-radius: 50%; /* Makes the loader circular */
+  height: 20rem; /* Circle height */
+  width: 20rem; /* Circle width */
+  border: 0.5rem solid purple; /* Outer circle border */
+  border-top: 0.5rem solid transparent; /* Creates the spinning effect */
+  animation: spin 1s linear infinite; /* Infinite spinning animation */
+}
+
+.SmallloaderTwo {
+  border-radius: 50%; /* Makes the loader circular */
+  height: 10rem; /* Circle height */
+  width: 10rem; /* Circle width */
   border: 0.5rem solid rgb(142, 0, 142); /* Outer circle border */
   border-top: 0.5rem solid transparent; /* Creates the spinning effect */
   animation: spin 1.5s linear infinite; /* Infinite spinning animation */

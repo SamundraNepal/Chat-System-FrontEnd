@@ -1,12 +1,14 @@
 .Container {
   padding: 5px;
   position: absolute;
-  left: 25rem;
+  left: calc(100% - 20%);
+  top: 5%;
   border: 2px solid rgb(162, 0, 255);
   background-color: rgba(216, 216, 216, 0.489);
   margin-top: 10px;
   border-radius: 10px;
   width: calc(100vw - 88.7vw);
+  z-index: 1;
 }
 
 .SubContainer {

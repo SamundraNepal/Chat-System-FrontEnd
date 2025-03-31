@@ -1,22 +1,16 @@
 .app {
-  height: calc(
-    100vh - 30px
-  ); /* Subtract the height of the browser's address bar or toolbar */
+  height: 100vh;
 }
 
 .mainArea {
-  height: calc(100vh - 5px);
+  height: 100vh;
   border-radius: 10px;
-  border: 2px solid rgb(6, 180, 55);
 }
 
 .container {
   display: grid;
-  grid-template-rows: 6rem 1fr; /* Two rows: top adjusts to content, bottom row is flexible */
   grid-template-columns: 1fr 2fr; /* Two columns for the bottom row: left 1fr, right 2fr */
   gap: 10px; /* Spacing between grid items */
-  height: calc(100vh - 30px); /* Full viewport height */
-  padding: 10px;
 }
 
 .activePeople {
@@ -37,7 +31,7 @@
   background-color: rgb(241, 241, 241);
   border-left: 2px solid rgb(93, 20, 251);
   border-bottom: 2px solid rgb(93, 20, 251);
-
+  height: fit-content;
   border-radius: 10px;
   padding: 2px;
 }
@@ -52,18 +46,48 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  animation: openChats 1s ease-in;
+  position: relative;
 }
 
 .subChatArea {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 50px;
   margin: 10px;
   margin-top: 3rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
+.ChatuserDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ChatuserDetails img {
+  border-radius: 300px;
+  width: 300px;
+  height: 300px;
+  border: 4px solid rgb(10, 228, 28);
+}
+
+.ChatuserDetails label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.audioRecording {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 50%;
+  left: 25%;
+  width: 50%;
+}
 .chatInput {
   width: calc(100vw - 40vw);
   padding: 1.5rem;
@@ -73,13 +97,146 @@
   background-color: seashell;
   border-radius: 2rem;
   display: flex;
+  flex-direction: column;
   border: 1px dotted rgb(93, 20, 251);
   height: calc(100vh - 28vh);
+  overflow-y: scroll;
+}
+.mainChatArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.allMessages {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.allMessages div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.allMessages li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  background-color: orange;
+  width: fit-content;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: 200;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.play {
+  z-index: 1;
+}
+
+.allMessages li button {
+  background-color: rgba(240, 248, 255, 0);
+  border: none;
+  font-size: 1rem;
+  color: white;
+}
+
+.allMessagesLeft {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: 10px;
+  transform: scaleX(-1); /* Mirrors the element horizontally */
+  align-items: center;
+}
+.allMessagesLeft div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.allMessagesLeft li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  background-color: orange;
+  width: fit-content;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: 200;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  transform: scaleX(-1); /* Mirrors the element horizontally */
+}
+
+.allMessagesLeft p {
+  direction: rtl;
+  transform: scaleX(-1); /* Mirrors the element horizontally */
+}
+
+.allMessagesLeft li button {
+  background-color: rgba(0, 129, 241, 0);
+  border: none;
+  font-size: 1rem;
+  color: white;
+}
+
+.foreground {
+  background-color: rgba(249, 255, 255, 0.327);
+  padding: 10px;
+  position: absolute;
+  height: 80%;
+  border-radius: 10px;
+  left: 0;
+  transition: width 0.5s ease-out;
+}
+
+.messageSeen {
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  right: 0%;
+  font-size: 1rem;
+}
+
+.subChatUserDetailsSeen img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 4px solid rgb(15, 243, 15);
+}
+
+.subChatUserDetails img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 4px solid rgb(0, 37, 249);
+}
+.userProfile {
+  background-color: seashell;
+  border-radius: 2rem;
+  display: flex;
+  border: 1px dotted rgb(93, 20, 251);
+  height: 100%;
 }
 
 .messageButtonArea {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   flex-direction: row;
   border-bottom: 2px solid black;
   margin-bottom: 1rem;
@@ -126,10 +283,170 @@
 }
 
 .chats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: scroll;
   background-color: rgb(225, 233, 233);
-  height: calc(100vh - 24vh);
+  height: calc(100vh - 10vh);
   border-radius: 10px;
-  border-bottom: 2px dotted rgb(93, 20, 251);
-  border-left: 2px dotted rgb(93, 20, 251);
   border-right: 2px dotted rgb(93, 20, 251);
+}
+
+.welcomePack {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  animation: blip2 3s ease-in 1;
+}
+
+.welcomePack img {
+  border-radius: 50%;
+  border: 4px dotted rgb(135, 37, 239);
+  animation: blip 5s infinite;
+}
+
+.messageButtonAreaSub {
+  position: relative;
+}
+
+.notifications {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  top: 1%;
+  left: 80%;
+}
+
+.FeedType {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.mainFeedButton {
+  color: black;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.showImage {
+  height: 70%;
+  width: 50%;
+  background-color: rgb(238, 238, 224);
+  position: absolute;
+  z-index: 1;
+  left: 20%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.closeButton {
+  color: red;
+  font-size: 2rem;
+}
+.closeButton:hover {
+  cursor: pointer;
+  color: rgb(235, 139, 13);
+}
+
+.showImage img {
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+}
+
+.showImage video {
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+}
+.sendButtom {
+  font-size: 2.5rem;
+  color: rgb(59, 58, 58);
+}
+
+.sendButtom:hover {
+  color: rgb(213, 101, 101);
+  cursor: pointer;
+}
+
+.chatImages {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  object-fit: contain;
+  transform: scaleX(-1); /* Mirrors the element horizontally */
+  border: 4px solid rgb(84, 81, 81);
+  background-color: black;
+}
+
+.chatImagesNormal {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  object-fit: contain;
+  border: 4px solid rgb(84, 81, 81);
+  background-color: black;
+}
+
+@keyframes openChats {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blip2 {
+  0% {
+    opacity: 1;
+    transform: scale(0.2);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes blip {
+  0% {
+    opacity: 0.5;
+    transform: rotate(0deg) scale(0.2);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(360deg) scale(0.9);
+  }
+  100% {
+    opacity: 0.5;
+    transform: rotate(0deg) scale(0.2);
+  }
 }

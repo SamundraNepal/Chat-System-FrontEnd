@@ -1,0 +1,41 @@
+.Containerunread {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: rgba(95, 11, 179, 0.221);
+  border-radius: 10px;
+}
+
+.Container {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.mainContainer {
+  display: flex;
+  padding: 4px;
+  border-radius: 50px;
+  gap: 4px;
+}
+.subContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.subContainer span {
+  color: black;
+}
+
+.UserName {
+  font-weight: bold;
+  color: black;
+  display: flex;
+}

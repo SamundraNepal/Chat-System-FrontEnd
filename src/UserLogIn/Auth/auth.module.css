@@ -1,10 +1,37 @@
 .LogInPageContainer {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(109, 32, 243);
+}
+
+.logoName {
+  position: absolute;
+  top: 0;
+  right: 0%;
+  left: 0;
+  color: white;
+  background-color: rgb(103, 29, 231);
+  width: 100%;
+  text-align: end;
+}
+
+.logoName h1 {
+  margin-right: 50px;
+  font-size: 3rem;
+}
+
+.logoImageAndName {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(
-    100vh - 30px
-  ); /* Subtract the height of the browser's address bar or toolbar */
+}
+
+.logoImageAndName img {
+  border-radius: 50%;
+  animation: Logo 2s ease-in-out;
 }
 
 .ContainerSubPage {
@@ -13,12 +40,10 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: rgb(66, 211, 66);
   height: 30vh;
   width: 30vw;
   padding: 50px;
   border-radius: 10px;
-  border: 6px solid green;
 }
 
 .inputCodesDiv {
@@ -49,10 +74,15 @@
   border-radius: 10px;
   padding: 1rem;
   border: none;
-  outline: 2px solid greenyellow;
   width: 10rem;
   font-size: 1rem;
+  color: white;
+  background-color: rgb(153, 52, 241);
   cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(161, 81, 203);
 }
 
 .buttonDiv {

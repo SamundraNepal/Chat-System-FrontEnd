@@ -81,90 +81,93 @@ export default function UpdatePassword() {
 
   return (
     <>
-      {!isLoading ? (
-        <form
-          onSubmit={handleUpdatePassword}
-          ref={modalRef}
-          className={`${Style.Container} ${
-            isOpen ? Style.IsActive : Style.IsInActive
-          }`}
-        >
-          <span>Modify Password</span>
-          <div className={Style.inputContainer}>
-            <UInput
-              PlaceHolder={'Enter current Password'}
-              ClassName={Style.input}
-              Type={!canView1 ? 'password' : 'text'}
-              Value={form.currentPassword}
-              OnChange={(e) =>
-                setFrom((prev) => ({
-                  ...prev,
-                  currentPassword: e.target.value,
-                }))
-              }
-            />
+      <form
+        onSubmit={handleUpdatePassword}
+        ref={modalRef}
+        className={`${Style.Container} ${
+          isOpen ? Style.IsActive : Style.IsInActive
+        }`}
+      >
+        {!isLoading ? (
+          <div className={Style.ContainerTwo}>
+            <span>Modify Password</span>
+            <div className={Style.inputContainer}>
+              <UInput
+                PlaceHolder={'Enter current Password'}
+                ClassName={Style.input}
+                Type={!canView1 ? 'password' : 'text'}
+                Value={form.currentPassword}
+                OnChange={(e) =>
+                  setFrom((prev) => ({
+                    ...prev,
+                    currentPassword: e.target.value,
+                  }))
+                }
+              />
 
-            <div className={Style.eyes} onClick={handleClickOne}>
-              {!canView1 && <BiSolidHide />}
-              {canView1 && <BiShow />}
-            </div>
-          </div>
-
-          <div className={Style.inputContainer}>
-            <UInput
-              PlaceHolder={'Enter New Password'}
-              ClassName={Style.input}
-              Type={!canView2 ? 'password' : 'text'}
-              Value={form.newPassword}
-              OnChange={(e) =>
-                setFrom((prev) => ({ ...prev, newPassword: e.target.value }))
-              }
-            />
-            <div className={Style.eyes}>
-              <div className={Style.eyes} onClick={handleClickTwo}>
-                {!canView2 && <BiSolidHide />}
-                {canView2 && <BiShow />}
+              <div className={Style.eyes} onClick={handleClickOne}>
+                {!canView1 && <BiSolidHide />}
+                {canView1 && <BiShow />}
               </div>
             </div>
-          </div>
 
-          <div className={Style.inputContainer}>
-            <UInput
-              PlaceHolder={'Enter Confrim Password'}
-              ClassName={Style.input}
-              Type={!canView3 ? 'password' : 'text'}
-              Value={form.confirmPassword}
-              OnChange={(e) =>
-                setFrom((prev) => ({
-                  ...prev,
-                  confirmPassword: e.target.value,
-                }))
-              }
-            />
-
-            <div className={Style.eyes}>
-              <div className={Style.eyes} onClick={handleClickThree}>
-                {!canView3 && <BiSolidHide />}
-                {canView3 && <BiShow />}
+            <div className={Style.inputContainer}>
+              <UInput
+                PlaceHolder={'Enter New Password'}
+                ClassName={Style.input}
+                Type={!canView2 ? 'password' : 'text'}
+                Value={form.newPassword}
+                OnChange={(e) =>
+                  setFrom((prev) => ({
+                    ...prev,
+                    newPassword: e.target.value,
+                  }))
+                }
+              />
+              <div className={Style.eyes}>
+                <div className={Style.eyes} onClick={handleClickTwo}>
+                  {!canView2 && <BiSolidHide />}
+                  {canView2 && <BiShow />}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className={Style.Subcontainer}>
-            <UButton ButtonName={'Update'} ClassName={Style.button} />
-            <UButton
-              ButtonName={'Cancel'}
-              ClassName={Style.button}
-              handleFunction={handleClose}
-            />
+            <div className={Style.inputContainer}>
+              <UInput
+                PlaceHolder={'Enter Confrim Password'}
+                ClassName={Style.input}
+                Type={!canView3 ? 'password' : 'text'}
+                Value={form.confirmPassword}
+                OnChange={(e) =>
+                  setFrom((prev) => ({
+                    ...prev,
+                    confirmPassword: e.target.value,
+                  }))
+                }
+              />
+
+              <div className={Style.eyes}>
+                <div className={Style.eyes} onClick={handleClickThree}>
+                  {!canView3 && <BiSolidHide />}
+                  {canView3 && <BiShow />}
+                </div>
+              </div>
+            </div>
+
+            <div className={Style.Subcontainer}>
+              <UButton ButtonName={'Update'} ClassName={Style.button} />
+              <UButton
+                ButtonName={'Cancel'}
+                ClassName={Style.button}
+                handleFunction={handleClose}
+              />
+            </div>
+            <ErrorMessage Message={message} ClassName={Style.errorMessage} />
           </div>
-          <ErrorMessage Message={message} ClassName={Style.errorMessage} />
-        </form>
-      ) : (
-        <div className={Style.Spinner}>
-          <Spinner />
-        </div>
-      )}
+        ) : (
+          <Spinner size={'small'} />
+        )}
+      </form>
     </>
   );
 }

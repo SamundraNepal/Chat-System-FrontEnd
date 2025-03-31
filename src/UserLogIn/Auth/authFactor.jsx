@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import UButton from '../../Components/button';
-import UInput from '../../Components/Input';
 import Style from './auth.module.css';
 import { Link } from 'react-router-dom';
 import Spinner from '../../until/spinner/spinner';
@@ -11,9 +10,9 @@ import { AuthContext } from '../../until/useContext';
 
 export default function AuthFactor() {
   const { setCredentials, setIsAuthenticated } = useContext(AuthContext);
-
+  const inputs = useRef([]);
   const [pin, setPin] = useState({
-    value: '',
+    value0: '',
     value1: '',
     value2: '',
     value3: '',
@@ -53,63 +52,36 @@ export default function AuthFactor() {
     }
   }
 
+  function handleChange(e, index) {
+    const { value } = e.target;
+
+    //allow only single number
+    if (value.length > 1) return;
+
+    setPin((prev) => ({ ...prev, [`value${index}`]: value }));
+
+    if (value && inputs.current[index + 1]) {
+      inputs.current[index + 1].focus();
+    }
+  }
+
   return (
     <>
       {!isLoading ? (
         <div className={Style.LogInPageContainer}>
+          <AppLogo />
           <div className={Style.ContainerSubPage}>
             <span>Enter Six digits Code Below</span>
             <div className={Style.inputCodesDiv}>
-              <UInput
-                ClassName={Style.input}
-                Type="number"
-                Value={pin.value.slice(0, 1)}
-                OnChange={(e) =>
-                  setPin((prev) => ({ ...prev, value: e.target.value }))
-                }
-              />
-              <UInput
-                ClassName={Style.input}
-                Type="number"
-                Value={pin.value1.slice(0, 1)}
-                OnChange={(e) =>
-                  setPin((prev) => ({ ...prev, value1: e.target.value }))
-                }
-              />
-              <UInput
-                ClassName={Style.input}
-                Type="number"
-                Value={pin.value2.slice(0, 1)}
-                OnChange={(e) =>
-                  setPin((prev) => ({ ...prev, value2: e.target.value }))
-                }
-              />
-              <UInput
-                ClassName={Style.input}
-                Type="number"
-                Value={pin.value3.slice(0, 1)}
-                OnChange={(e) =>
-                  setPin((prev) => ({ ...prev, value3: e.target.value }))
-                }
-              />
-
-              <UInput
-                ClassName={Style.input}
-                Type="number"
-                Value={pin.value4.slice(0, 1)}
-                OnChange={(e) =>
-                  setPin((prev) => ({ ...prev, value4: e.target.value }))
-                }
-              />
-
-              <UInput
-                ClassName={Style.input}
-                Type="number"
-                Value={pin.value5.slice(0, 1)}
-                OnChange={(e) =>
-                  setPin((prev) => ({ ...prev, value5: e.target.value }))
-                }
-              />
+              {Array.from({ length: 6 }).map((_, index) => (
+                <input
+                  ref={(el) => (inputs.current[index] = el)} // Assign input refs
+                  className={Style.input}
+                  type="number"
+                  value={pin[`value${index}`]}
+                  onChange={(e) => handleChange(e, index)}
+                />
+              ))}
             </div>
             <div className={Style.buttonDiv}>
               <UButton
@@ -132,5 +104,18 @@ export default function AuthFactor() {
         <Spinner />
       )}
     </>
+  );
+}
+
+function AppLogo() {
+  return (
+    <div className={Style.appLogo}>
+      <div className={Style.logoName}>
+        <h1>Tarang</h1>
+      </div>
+      <div className={Style.logoImageAndName}>
+        <img src="/TarangLogo.png" height={400} width={400} alt="appLogo" />
+      </div>
+    </div>
   );
 }
